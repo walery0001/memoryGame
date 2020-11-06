@@ -1,0 +1,31 @@
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+body{
+	height: 100vh;
+display: flex;
+	justify-content: center;
+	align-content: center;
+}
+/* container */
+.container{
+	width: 80%;
+	height:80%;
+	border:solid 1px black;
+	display:flex;
+	flex-flow: wrap;
+	margin: 50px auto;
+	}
+	/* img div */
+	.imgDiv{
+		width: 25%;
+		height: 25%;
+				border:solid 1px black;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	
