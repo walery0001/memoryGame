@@ -2,6 +2,9 @@
 const container = document.querySelector(".container");
 let imgDiv = document.querySelectorAll(".imgDiv");
 const timerOut = document.getElementById("timerOut");
+const gameAgain = document.getElementById("gameAgain");
+const btnText = document.querySelector(".btnText");
+const btnOver = document.querySelector(".btnOver");
 //nodelist to array
 let newImgDiv = [...imgDiv];
 // number fotos
@@ -16,17 +19,38 @@ function addNr() {
   });
 }
 addNr();
+// game time to over
+let twentySec = 60;
+function twentySecTime() {
+let twentySecInterval =  setInterval(function() {
+    twentySec--;
+
+    timerOut.innerHTML = twentySec;
+    if (twentySec === -1) {
+      playAgain()
+	  timerOut.innerHTML = ''
+	  clearInterval(twentySecInterval);
+	  
+    }
+  },1000);
+}
 //time out background off
-let timer = 2;
+let timer = 10;
 let turnOff = setInterval(function () {
   timer--;
-  timerOut.innerHTML = timer;
+  timerOut.innerHTML = timer
   if (timer === 0) {
-    backgroundWhite();
-    clearInterval(turnOff);
+	backgroundWhite();
+	twentySecTime();
+	
+	clearInterval(turnOff);
+    
   }
+ 
 }, 1000);
-
+//pkt base
+pkt = '';
+console.log(pkt)
 //same pictures
 let arrayClick = "";
 let clicks = [];
@@ -45,6 +69,7 @@ let clicker = function () {
   setTimeout(function () {
     if (clicks[0].style.backgroundImage === clicks[1].style.backgroundImage) {
       clicks.forEach((e) => (e.style.background = "green"));
+      pkt++;
     } else {
       clicks.forEach((e) => e.classList.add("coverImg"));
     }
@@ -61,3 +86,22 @@ function backgroundWhite() {
     e.addEventListener("click", clicker);
   });
 }
+// gamer over button 
+function playAgain(){
+if(pkt === 10){
+  gameAgain.style.visibility = 'visible';
+  btnText.innerHTML = `You Won <br> Play Again`
+ }else{
+    gameAgain.style.visibility = 'visible';
+   btnText.innerHTML = `Game Over <br> Try Again`
+  
+  
+}
+
+}
+//location.reload();
+function refreshBtn(){
+  location.reload();
+  
+  }
+  
