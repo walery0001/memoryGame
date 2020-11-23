@@ -20,7 +20,7 @@ function addNr() {
 }
 addNr();
 // game time to over
-let twentySec = 60;
+let twentySec = 45;
 function twentySecTime() {
 let twentySecInterval =  setInterval(function() {
     twentySec--;
@@ -35,7 +35,7 @@ let twentySecInterval =  setInterval(function() {
   },1000);
 }
 //time out background off
-let timer = 10;
+let timer = 8;
 let turnOff = setInterval(function () {
   timer--;
   timerOut.innerHTML = timer
@@ -86,22 +86,20 @@ function backgroundWhite() {
     e.addEventListener("click", clicker);
   });
 }
-// gamer over button 
-function playAgain(){
-if(pkt === 10){
-  gameAgain.style.visibility = 'visible';
-  btnText.innerHTML = `You Won <br> Play Again`
- }else{
-    gameAgain.style.visibility = 'visible';
-   btnText.innerHTML = `Game Over <br> Try Again`
-  
-  
-}
 
-}
+function playAgain(){
+  if(pkt === 10){
+    gameAgain.style.visibility = 'visible';
+    btnText.innerHTML = `You Won <br> Play Again`
+   }else{
+      gameAgain.style.visibility = 'visible';
+     btnText.innerHTML = `Game Over <br> Try Again`
+      }
+  
+  }
+
 //location.reload();
 function refreshBtn(){
   location.reload();
-  
-  }
+    }
   
